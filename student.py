@@ -89,11 +89,11 @@ class Piggy(pigo.Pigo):
             self.encL(5)
 
     def boo(self):
-        self.speed(200,200)
+        self.set_speed(200,200)
         for x in range(3):
             self.encB(5)
             self.encF(15)
-        self.speed(self.LEFT_SPEED,self.RIGHT_SPEED)
+        self.set_speed(self.LEFT_SPEED,self.RIGHT_SPEED)
 
     def obstacle_count(self):
         """scans and estimates the number of obstacles within sight"""
