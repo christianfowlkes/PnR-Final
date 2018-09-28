@@ -80,7 +80,7 @@ class Piggy(pigo.Pigo):
             self.encL(1)
 
     def nae_nae(self):
-        for x in range(7):
+        for x in range(3):
             self.encR(5)
             self.encL(5)
 
