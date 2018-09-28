@@ -65,6 +65,7 @@ class Piggy(pigo.Pigo):
             self.shuffle_forward()
             self.swang()
             self.nae_nae()
+            self.boo()
 
     def shuffle_forward(self):
         for x in range(3):
@@ -82,6 +83,11 @@ class Piggy(pigo.Pigo):
         for x in range(7)
             self.encR(5)
             self.encL(5)
+
+    def boo(self):
+        for x in range(3)
+            self.encB(5)
+            self.encF(10)
 
     def obstacle_count(self):
         """scans and estimates the number of obstacles within sight"""
