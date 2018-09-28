@@ -73,19 +73,19 @@ class Piggy(pigo.Pigo):
             self.encB(1)
 
     def swang(self):
-        for x in range(5):
+        for x in range(3):
             self.encB(2)
             self.encR(1)
             self.encB(2)
             self.encL(1)
 
     def nae_nae(self):
-        for x in range(7)
+        for x in range(7):
             self.encR(5)
             self.encL(5)
 
     def boo(self):
-        for x in range(3)
+        for x in range(3):
             self.encB(5)
             self.encF(10)
 
