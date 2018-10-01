@@ -23,7 +23,7 @@ class Piggy(pigo.Pigo):
         self.SAFE_STOP_DIST = 30
         self.HARD_STOP_DIST = 15
         # YOU DECIDE: What left motor power helps straighten your fwd()?
-        self.LEFT_SPEED = 140
+        self.LEFT_SPEED = 145
         # YOU DECIDE: What left motor power helps straighten your fwd()?
         self.RIGHT_SPEED = 155
         # This one isn't capitalized because it changes during runtime, the others don't
@@ -61,7 +61,7 @@ class Piggy(pigo.Pigo):
         """executes a series of methods that add up to a compound dance"""
         print("\n---- LET'S DANCE ----\n")
         ##### WRITE YOUR FIRST PROJECT HERE
-        for x in range(3):
+        for x in range(2):
             self.shuffle_forward()
             self.swang()
             self.nae_nae()
@@ -70,7 +70,7 @@ class Piggy(pigo.Pigo):
 ### This makes a command where the robot will do a seris dances moves ###
 
     def shuffle_forward(self):
-        for x in range(3):
+        for x in range(2):
             self.encF(3)
             self.encR(3)
             self.encF(3)
@@ -80,7 +80,7 @@ class Piggy(pigo.Pigo):
 ### This command makes the robot do a shuffle forward ###
 
     def swang(self):
-        for x in range(3):
+        for x in range(2):
             self.encB(4)
             self.encR(2)
             self.encB(4)
@@ -89,7 +89,7 @@ class Piggy(pigo.Pigo):
 ### This command makes the robot swing in a backward motion, making a swanging motion ###
 
     def nae_nae(self):
-        for x in range(3):
+        for x in range(2):
             self.encR(5)
             self.encB(5)
             self.encL(5)
@@ -98,7 +98,7 @@ class Piggy(pigo.Pigo):
 
     def boo(self):
         self.set_speed(200,200)
-        for x in range(3):
+        for x in range(2):
             self.encB(5)
             self.encF(25)
         self.set_speed(self.LEFT_SPEED,self.RIGHT_SPEED)
