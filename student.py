@@ -67,6 +67,8 @@ class Piggy(pigo.Pigo):
             self.nae_nae()
             self.boo()
 
+### This makes a command where the robot will do a seris dances moves ###
+
     def shuffle_forward(self):
         for x in range(3):
             self.encF(3)
@@ -75,6 +77,8 @@ class Piggy(pigo.Pigo):
             self.encL(3)
             self.encF(3)
 
+### This command makes the robot do a shuffle forward ###
+
     def swang(self):
         for x in range(3):
             self.encB(4)
@@ -82,18 +86,24 @@ class Piggy(pigo.Pigo):
             self.encB(4)
             self.encL(2)
 
+### This command makes the robot swing in a backward motion, making a swanging motion ###
+
     def nae_nae(self):
         for x in range(3):
             self.encR(5)
             self.encB(5)
             self.encL(5)
 
+### This command makes the robot do the nae nae ###
+
     def boo(self):
         self.set_speed(200,200)
         for x in range(3):
             self.encB(5)
-            self.encF(15)
+            self.encF(25)
         self.set_speed(self.LEFT_SPEED,self.RIGHT_SPEED)
+
+### This command makes the robot go backwards faster and then spring forward fast ###
 
     def obstacle_count(self):
         """scans and estimates the number of obstacles within sight"""
