@@ -83,7 +83,7 @@ class Piggy(pigo.Pigo):
                 return False
         self.encR(8)   # is this 90 deg
         # if we find no problems:
-        return true
+        return True
 
 ### This makes a command where the robot will do a seris dances moves ###
 
