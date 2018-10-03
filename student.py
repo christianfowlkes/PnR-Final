@@ -63,7 +63,7 @@ class Piggy(pigo.Pigo):
             print("\n----NOT SAFE TO DANCE----\n")
             return False
         if self.safe_to_dance():
-        print("\n---- LET'S DANCE ----\n")
+            print("\n---- LET'S DANCE ----\n")
         ##### WRITE YOUR FIRST PROJECT HERE
         for x in range(2):
             self.shuffle_forward()
