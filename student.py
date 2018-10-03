@@ -78,6 +78,7 @@ class Piggy(pigo.Pigo):
             if not self.is_clear():
                 self.servo(60)
                 self.servo(100)
+                self.encB(10)
                 return False
         self.encR(29.5/4) # is this 90 deg
         #if we find no problems:
