@@ -59,6 +59,9 @@ class Piggy(pigo.Pigo):
     # YOU DECIDE: How does your GoPiggy dance?
     def dance(self):
         """executes a series of methods that add up to a compound dance"""
+        if not self.safe to dance():
+            print("n\----NOT SAFE TO DANCE----\n")
+            return
         print("\n---- LET'S DANCE ----\n")
         ##### WRITE YOUR FIRST PROJECT HERE
         for x in range(2):
@@ -66,6 +69,17 @@ class Piggy(pigo.Pigo):
             self.swang()
             self.nae_nae()
             self.boo()
+
+
+    def safe_to_dance(self):
+        """ circles around and check for any obstacle"""
+        # check for problems
+        for x in range(4):
+            if not self.is_clear():
+                return False
+        self.encR(29.5/4) # is this 90 deg
+        #if we find no problems:
+        return true
 
 ### This makes a command where the robot will do a seris dances moves ###
 
