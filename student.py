@@ -81,8 +81,8 @@ class Piggy(pigo.Pigo):
                 self.servo(100)
                 self.encB(10)
                 return False
-        self.encR(29.5/4) # is this 90 deg
-        #if we find no problems:
+        self.encR(8)   # is this 90 deg
+        # if we find no problems:
         return true
 
 ### This makes a command where the robot will do a seris dances moves ###
