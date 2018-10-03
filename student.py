@@ -81,7 +81,7 @@ class Piggy(pigo.Pigo):
                 self.servo(100)
                 self.encB(10)
                 return False
-        self.encR(8)   # is this 90 deg
+            self.encR(8)   # is this 90 deg
         # if we find no problems:
         return True
 
