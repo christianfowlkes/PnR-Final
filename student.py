@@ -81,7 +81,7 @@ class Piggy(pigo.Pigo):
                 self.servo(150)
                 self.encB(15)
                 return False
-            self.encR(4)   # this should make the robot turn 4 times
+            self.encR(10)   # this should make the robot turn 4 times
         # if we find no problems:
         return True
 
