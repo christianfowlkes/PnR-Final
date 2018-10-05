@@ -116,12 +116,14 @@ class Piggy(pigo.Pigo):
 
     def boo(self):
         self.set_speed(200,200)
-        for x in range(1):
-            self.encB(5)
-            self.encF(25)
+        self.encB(5)
+        self.fwd()
+        for x in range(3):
             self.servo(50)
+            time.sleep(1)
             self.servo(150)
         self.set_speed(self.LEFT_SPEED,self.RIGHT_SPEED)
+        self.stop()
 
 ### This command makes the robot go backwards faster and then spring forward fast ###
 
