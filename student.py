@@ -85,7 +85,7 @@ class Piggy(pigo.Pigo):
         # if we find no problems:
         return True
 
-        ''' This makes a command where the robot will do a seris dances moves '''
+        ''' This makes a command where the robot will do a series dances moves '''
 
     def shuffle_forward(self):
         for x in range(2):
