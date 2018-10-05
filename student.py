@@ -39,7 +39,7 @@ class Piggy(pigo.Pigo):
 
     def menu(self):
         """Displays menu dictionary, takes key-input and calls method"""
-        ## This is a DICTIONARY, it's a list with custom index values
+        # This is a DICTIONARY, it's a list with custom index values
         # You may change the menu if you'd like to add an experimental method
         menu = {"n": ("Navigate forward", self.nav),
                 "d": ("Dance", self.dance),
@@ -81,11 +81,11 @@ class Piggy(pigo.Pigo):
                 self.servo(150)
                 self.encB(15)
                 return False
-            self.encR(10)   # this should make the robot turn 4 times
+            self.encR(10)   # this should make the robot turn bigger turns
         # if we find no problems:
         return True
 
-### This makes a command where the robot will do a seris dances moves ###
+        ''' This makes a command where the robot will do a seris dances moves '''
 
     def shuffle_forward(self):
         for x in range(2):
@@ -93,9 +93,9 @@ class Piggy(pigo.Pigo):
             self.encF(3)
             self.encL(3)
             self.encF(3)
-            self.encR(3)
 
-### This command makes the robot do a shuffle forward ###
+
+        ''' This command makes the robot do a shuffle forward '''
 
     def swang(self):
         for x in range(3):
@@ -104,7 +104,7 @@ class Piggy(pigo.Pigo):
             self.encB(4)
             self.encL(2)
 
-### This command makes the robot swing in a backward motion, making a swanging motion ###
+        ''' This command makes the robot swing in a backward motion, making a swanging motion '''
 
     def nae_nae(self):
         for x in range(3):
@@ -112,7 +112,7 @@ class Piggy(pigo.Pigo):
             self.encB(5)
             self.encL(5)
 
-### This command makes the robot do the nae nae ###
+        ''' This command makes the robot do the nae nae '''
 
     def boo(self):
         self.set_speed(200,200)
@@ -123,7 +123,7 @@ class Piggy(pigo.Pigo):
             self.servo(140)
             self.servo(80)
 
-### This command makes the robot go backwards faster and then spring forward fast ###
+        ''' This command makes the robot go backwards faster and then spring forward fast '''
 
     def obstacle_count(self):
         """scans and estimates the number of obstacles within sight"""
