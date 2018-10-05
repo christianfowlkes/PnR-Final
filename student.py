@@ -119,6 +119,8 @@ class Piggy(pigo.Pigo):
         for x in range(1):
             self.encB(5)
             self.encF(25)
+            self.servo(50)
+            self.servo(150)
         self.set_speed(self.LEFT_SPEED,self.RIGHT_SPEED)
 
 ### This command makes the robot go backwards faster and then spring forward fast ###
