@@ -77,9 +77,9 @@ class Piggy(pigo.Pigo):
         # check for problems
         for x in range(4):
             if not self.is_clear():
-                self.servo(60)
-                self.servo(100)
-                self.encB(10)
+                self.servo(80)
+                self.servo(150)
+                self.encB(15)
                 return False
             self.encR(8)   # is this 90 deg
         # if we find no problems:
@@ -121,6 +121,7 @@ class Piggy(pigo.Pigo):
         for x in range(3):
             self.servo(80)
             self.servo(140)
+            self.servo(80)
 
 ### This command makes the robot go backwards faster and then spring forward fast ###
 
