@@ -76,7 +76,7 @@ class Piggy(pigo.Pigo):
         """ circles around and check for any obstacle"""
         # check for problems
         for x in range(4):
-            if not self.is_clear():
+            if not self.is_clear():  # this makes the robot move backward and shake its head in a no motion
                 self.servo(80)
                 self.servo(150)
                 self.encB(15)
