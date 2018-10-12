@@ -70,6 +70,7 @@ class Piggy(pigo.Pigo):
             self.swang()
             self.nae_nae()
             self.boo()
+            self.x_up()
 
 
     def safe_to_dance(self):
@@ -122,6 +123,18 @@ class Piggy(pigo.Pigo):
             self.servo(80)
             self.servo(140)
             self.servo(80)
+
+    def x_up(self):
+        """supposed to make an X formation"""
+        for x in range(4):
+            self.encB(9)
+            self.encR(2)
+            self.encF(9)
+            self.encL(2)
+            self.encB(9)
+            self.encL(2)
+            self.encF(9)
+            self.encR(2)
 
         ''' This command makes the robot go backwards faster and then spring forward fast '''
 
