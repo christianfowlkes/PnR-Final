@@ -78,8 +78,8 @@ class Piggy(pigo.Pigo):
         # check for problems
         for x in range(4):
             if not self.is_clear():  # this makes the robot move backward and shake its head in a no motion
-                self.servo(80)
-                self.servo(150)
+                self.servo(75)
+                self.servo(125)
                 self.encB(15)
                 return False
             self.encR(10)   # this should make the robot turn bigger turns
