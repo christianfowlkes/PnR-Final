@@ -124,6 +124,7 @@ class Piggy(pigo.Pigo):
             self.servo(140)
             self.servo(80)
 
+    # From Ricky
     def x_up(self):
         """supposed to make an X formation"""
         for x in range(4):
@@ -135,6 +136,7 @@ class Piggy(pigo.Pigo):
             self.encL(2)
             self.encF(9)
             self.encR(2)
+            self.x_up()
 
         ''' This command makes the robot go backwards faster and then spring forward fast '''
 
