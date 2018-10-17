@@ -65,12 +65,11 @@ class Piggy(pigo.Pigo):
             if self.dist() < 20:
                 self.set_speed(200, 200)
                 self.encB(5)
-                self.encF(20)
+                self.encF(10)
                 for x in range(3):
                     self.servo(self.MIDPOINT + 40)
                     self.servo(self.MIDPOINT - 40)
                 self.stop()
-                self.encF(15)
             time.sleep(.1)
 
     # YOU DECIDE: How does your GoPiggy dance?
