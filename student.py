@@ -67,8 +67,9 @@ class Piggy(pigo.Pigo):
                 self.encB(5)
                 self.encF(20)
                 for x in range(3):
-                    self.servo(self.MIDPOINT + 30)
-                    self.servo(self.MIDPOINT - 30)
+                    self.servo(self.MIDPOINT + 40)
+                    self.servo(self.MIDPOINT - 40)
+                self.stop()
             time.sleep(.1)
 
     # YOU DECIDE: How does your GoPiggy dance?
