@@ -93,7 +93,9 @@ class Piggy(pigo.Pigo):
 
         else:
             # turn until its clear
-            pass
+            while not self.is_clear():
+                self.encR(5)
+
 
     def open_house(self):
 
