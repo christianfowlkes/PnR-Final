@@ -20,8 +20,8 @@ class Piggy(pigo.Pigo):
         self.MIDPOINT = 82
 
         # YOU DECIDE: How close can an object get (cm) before we have to stop?
-        self.SAFE_STOP_DIST = 30
-        self.HARD_STOP_DIST = 15
+        self.SAFE_STOP_DIST = 15
+        self.HARD_STOP_DIST = 5
         # YOU DECIDE: What left motor power helps straighten your fwd()?
         self.LEFT_SPEED = 145
         # YOU DECIDE: What left motor power helps straighten your fwd()?
@@ -231,13 +231,14 @@ class Piggy(pigo.Pigo):
             if self.is_clear():
                 self.cruise()
             else:
-                self.encR(10)
+                while not self.is_clear():
+                    self.encR(5)
 
     def cruise(self):
         """ drive straight while path is clear """
         self.fwd()
         while self.dist() > self.SAFE_STOP_DIST:
-            time.sleep(.5)
+            time.sleep(.5)  # these need to be changed
         self.stop()
 ####################################################
 ############### STATIC FUNCTIONS
