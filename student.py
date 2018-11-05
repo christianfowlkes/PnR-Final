@@ -245,6 +245,32 @@ class Piggy(pigo.Pigo):
 ####################################################
 ############### STATIC FUNCTIONS
 
+    def choose_path(self):
+        """averages distance on either side of midpoint and turns"""
+        print('Considering options...')
+        if self.is_clear():
+            return "fwd"
+        else:
+            self.wide_scan()
+        avgRight = 0
+        avgLeft = 0
+        for x in range(self.MIDPOINT-60, self.MIDPOINT):
+            if self.scan[x]:
+                avgRight += self.scan[x]
+        avgRight /= 60
+        print('The average dist on the right is '+str(avgRight)+'cm')
+        logging.info('The average dist on the right is ' + str(avgRight) + 'cm')
+        for x in range(self.MIDPOINT, self.MIDPOINT+60):
+            if self.scan[x]:
+                avgLeft += self.scan[x]
+        avgLeft /= 60
+        print('The average dist on the left is ' + str(avgLeft) + 'cm')
+        logging.info('The average dist on the left is ' + str(avgLeft) + 'cm')
+        if avgRight > avgLeft:
+            return "right"
+        else:
+            return "left"
+
 def error():
     """records general, less specific error"""
     logging.error("ERROR")
