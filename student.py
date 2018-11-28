@@ -239,8 +239,8 @@ class Piggy(pigo.Pigo):
         self.fwd()
         while self.dist() > self.SAFE_STOP_DIST:
             time.sleep(.2)  # these need to be changed
-            self.servo(self.MIDPOINT - 10)
-            self.servo(self.MIDPOINT + 10)
+            self.servo(self.MIDPOINT - 25)
+            self.servo(self.MIDPOINT + 25)
         self.stop()
 ####################################################
 ############### STATIC FUNCTIONS
