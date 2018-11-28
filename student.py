@@ -273,7 +273,7 @@ class Piggy(pigo.Pigo):
 
 def error():
     """records general, less specific error"""
-    logging.error("ERROR")
+    logging.error("ERROR-404 not found")
     print('ERROR')
 
 
