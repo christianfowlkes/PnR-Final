@@ -267,9 +267,9 @@ class Piggy(pigo.Pigo):
         print('The average dist on the left is ' + str(avgLeft) + 'cm')
         logging.info('The average dist on the left is ' + str(avgLeft) + 'cm')
         if avgRight > avgLeft:
-            return "right"
+            self.encR(5)
         else:
-            return "left"
+            self.encL(5)
 
 def error():
     """records general, less specific error"""
