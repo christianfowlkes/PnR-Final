@@ -275,10 +275,18 @@ class Piggy(pigo.Pigo):
         avgLeft /= 60
         print('The average dist on the left is ' + str(avgLeft) + 'cm')
         logging.info('The average dist on the left is ' + str(avgLeft) + 'cm')
-        if avgRight > avgLeft:
+        if is_clear_infront():
+            self.cruise()
+        else avgRight > avgLeft:  # if right is bigger turn to the right
             self.encR(5)
-        else:
+        elif:  # if left is bigger turn to the left
             self.encL(5)
+
+    def is_clear_infront(self):
+        for ang in range(self.MIDPOINT - 10, self.MIDPOINT + 10):
+            if self.scan[ang] and self.scan[ang] < self.SAFE_STOP_DISTANCE:
+                return False
+        return True
 
 def error():
     """records general, less specific error"""
