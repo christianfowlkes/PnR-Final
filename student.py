@@ -217,7 +217,7 @@ class Piggy(pigo.Pigo):
                 print("NOT GOING TO DANCE")
                 return False
             print("Check #%d" % (loop + 1))
-            self.encR(8)  # figure out 90 deg
+            self.encR(12)  # figure out 90 deg
         print("Safe to dance!")
         return True
 
@@ -227,10 +227,17 @@ class Piggy(pigo.Pigo):
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         print("-------- [ Press CTRL + C to stop me ] --------\n")
         print("-----------! NAVIGATION ACTIVATED !------------\n")
+
+
+        error_count = 0
         while True:
             if self.is_clear():
                 self.cruise()
+                error_count = 0
             else:
+                error_count += 1
+                if error_count == 10:
+                    raw_input("Ay Miley, what's good")
                 while not self.is_clear():
                     self.choose_path()
 
@@ -241,6 +248,8 @@ class Piggy(pigo.Pigo):
             time.sleep(.2)  # these need to be changed
             self.servo(self.MIDPOINT - 25)
             self.servo(self.MIDPOINT + 25)
+            self.servo(self.MIDPOINT + 25)
+            self.servo(self.MIDPOINT - 25)
         self.stop()
 ####################################################
 ############### STATIC FUNCTIONS
