@@ -275,11 +275,11 @@ class Piggy(pigo.Pigo):
         avgLeft /= 60
         print('The average dist on the left is ' + str(avgLeft) + 'cm')
         logging.info('The average dist on the left is ' + str(avgLeft) + 'cm')
-        if is_clear_infront():
+        if self.is_clear_infront():
             self.cruise()
-        else avgRight > avgLeft:  # if right is bigger turn to the right
+        elif avgRight > avgLeft:  # if right is bigger turn to the right
             self.encR(5)
-        elif:  # if left is bigger turn to the left
+        else: # if left is bigger turn to the left
             self.encL(5)
 
     def is_clear_infront(self):
