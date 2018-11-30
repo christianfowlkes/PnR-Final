@@ -164,12 +164,11 @@ class Pigo(object):
         """resets the scan array"""
         self.scan = [None]*180
 
-    def wide_scan(self, count=10):
+    def wide_scan(self, count=2):
         """moves servo 120 degrees and fills scan array, default count=2"""
         self.flush_scan()
         for x in range(self.MIDPOINT-60, self.MIDPOINT+60, count):
-            self.servo(self.MIDPOINT - 30)
-            self.servo(self.MIDPOINT + 30)
+            servo(x)
             time.sleep(.1)
             scan1 = us_dist(15)
             time.sleep(.1)
