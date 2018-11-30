@@ -228,8 +228,8 @@ class Piggy(pigo.Pigo):
         print("-------- [ Press CTRL + C to stop me ] --------\n")
         print("-----------! NAVIGATION ACTIVATED !------------\n")
 
-
         error_count = 0
+
         while True:
             if self.is_clear():
                 self.cruise()
@@ -238,51 +238,61 @@ class Piggy(pigo.Pigo):
                 error_count += 1
                 if error_count == 10:
                     raw_input("Ay Miley, what's good")
-                while not self.is_clear():
-                    self.choose_path()
+                self.choose_path()
 
     def cruise(self):
         """ drive straight while path is clear """
+        # make sure I'm looking forward
+
+        angle = self.MIDPOINT
+
+        self.servo(angle)
+
         self.fwd()
+
         while self.dist() > self.SAFE_STOP_DIST:
-            time.sleep(.2)  # these need to be changed
-            self.servo(self.MIDPOINT - 25)
-            self.servo(self.MIDPOINT + 25)
-            self.servo(self.MIDPOINT + 25)
-            self.servo(self.MIDPOINT - 25)
+            if angle == self.MIDPOINT:
+                angle = self.MIDPOINT - 25
+            elif angle == self.MIDPOINT - 25:
+                angle = self.MIDPOINT + 25
+            elif angle == self.MIDPOINT + 25:
+                angle = self.MIDPOINT
+            self.servo(angle)
+
         self.stop()
-####################################################
-############### STATIC FUNCTIONS
 
     def choose_path(self):
         """averages distance on either side of midpoint and turns"""
-        print('Considering options...')
-        if self.is_clear():
-            return "fwd"
-        else:
-            self.wide_scan()
+        print(' /n /n /n CHOOSING PATH!!! /n /n ')
+        self.wide_scan(count=4)
+
         avgRight = 0
         avgLeft = 0
+
         for x in range(self.MIDPOINT-60, self.MIDPOINT):
             if self.scan[x]:
                 avgRight += self.scan[x]
         avgRight /= 60
         print('The average dist on the right is '+str(avgRight)+'cm')
         logging.info('The average dist on the right is ' + str(avgRight) + 'cm')
+
         for x in range(self.MIDPOINT, self.MIDPOINT+60):
             if self.scan[x]:
                 avgLeft += self.scan[x]
         avgLeft /= 60
         print('The average dist on the left is ' + str(avgLeft) + 'cm')
         logging.info('The average dist on the left is ' + str(avgLeft) + 'cm')
-        if self.is_clear_infront():
+
+        if self.is_clear_in_front():
+            print(" /n /n THIS WAS A WASTE. IT WAS CLEAR IN FRONT THIS WHOLE TIME /n ")
             self.cruise()
+
         elif avgRight > avgLeft:  # if right is bigger turn to the right
             self.encR(5)
-        else: # if left is bigger turn to the left
+        else:  # if left is bigger turn to the left
             self.encL(5)
 
-    def is_clear_infront(self):
+    def is_clear_in_front(self):
         for ang in range(self.MIDPOINT - 10, self.MIDPOINT + 10):
             if self.scan[ang] and self.scan[ang] < self.SAFE_STOP_DISTANCE:
                 return False
