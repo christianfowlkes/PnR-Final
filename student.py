@@ -261,9 +261,10 @@ class Piggy(pigo.Pigo):
 
         self.stop()
 
-    def choose_path(self):
+    def choose_path(self): # the robot should chose the path with the greatest distance
         """averages distance on either side of midpoint and turns"""
-        print(' /n /n /n CHOOSING PATH!!! /n /n ')
+        print(" /n /n /n CHOOSING PATH!!! /n /n ")
+        self.encB(2)
         self.wide_scan(count=4)
 
         avgRight = 0
@@ -273,14 +274,14 @@ class Piggy(pigo.Pigo):
             if self.scan[x]:
                 avgRight += self.scan[x]
         avgRight /= 60
-        print('The average dist on the right is '+str(avgRight)+'cm')
+        print('The average dist on the right is '+str(avgRight)+'cm')  # tells how far object is on the right
         logging.info('The average dist on the right is ' + str(avgRight) + 'cm')
 
         for x in range(self.MIDPOINT, self.MIDPOINT+60):
             if self.scan[x]:
                 avgLeft += self.scan[x]
         avgLeft /= 60
-        print('The average dist on the left is ' + str(avgLeft) + 'cm')
+        print('The average dist on the left is ' + str(avgLeft) + 'cm')  # tells how far object is on the left
         logging.info('The average dist on the left is ' + str(avgLeft) + 'cm')
 
         if self.is_clear_in_front():
