@@ -288,9 +288,9 @@ class Piggy(pigo.Pigo):
             self.cruise()
 
         elif avgRight > avgLeft:  # if right is bigger turn to the right
-            self.encR(5)
+            self.encR(4)
         else:  # if left is bigger turn to the left
-            self.encL(5)
+            self.encL(4)
 
     def is_clear_in_front(self):
         for ang in range(self.MIDPOINT - 10, self.MIDPOINT + 10):
