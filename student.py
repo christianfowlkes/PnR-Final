@@ -264,8 +264,8 @@ class Piggy(pigo.Pigo):
     def choose_path(self): # the robot should chose the path with the greatest distance
         """averages distance on either side of midpoint and turns"""
         print(" /n /n /n CHOOSING PATH!!! /n /n ")
-        self.encB(2)
-        self.wide_scan(count=4)
+        self.encB(1)
+        self.wide_scan(count=6)
 
         avgRight = 0
         avgLeft = 0
