@@ -252,10 +252,10 @@ class Piggy(pigo.Pigo):
 
         while self.dist() > self.SAFE_STOP_DIST:
             if angle == self.MIDPOINT:
-                angle = self.MIDPOINT - 25
-            elif angle == self.MIDPOINT - 25:
-                angle = self.MIDPOINT + 25
-            elif angle == self.MIDPOINT + 25:
+                angle = self.MIDPOINT - 30
+            elif angle == self.MIDPOINT - 30:
+                angle = self.MIDPOINT + 30
+            elif angle == self.MIDPOINT + 30:
                 angle = self.MIDPOINT
             self.servo(angle)
 
