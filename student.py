@@ -252,10 +252,10 @@ class Piggy(pigo.Pigo):
 
         while self.dist() > self.SAFE_STOP_DIST:
             if angle == self.MIDPOINT:
-                angle = self.MIDPOINT - 30
-            elif angle == self.MIDPOINT - 30:
-                angle = self.MIDPOINT + 30
-            elif angle == self.MIDPOINT + 30:
+                angle = self.MIDPOINT - 27
+            elif angle == self.MIDPOINT - 27:
+                angle = self.MIDPOINT + 27
+            elif angle == self.MIDPOINT + 27:
                 angle = self.MIDPOINT
             self.servo(angle)
 
@@ -263,7 +263,7 @@ class Piggy(pigo.Pigo):
 
     def choose_path(self): # the robot should chose the path with the greatest distance
         """averages distance on either side of midpoint and turns"""
-        print(" /n /n /n CHOOSING PATH!!! /n /n /n ")
+        print("/n /n /n  CHOOSING PATH!!!  /n /n /n")
         self.encB(1)
         self.wide_scan(count=6)
 
