@@ -20,7 +20,7 @@ class Piggy(pigo.Pigo):
         self.MIDPOINT = 100
 
         # YOU DECIDE: How close can an object get (cm) before we have to stop?
-        self.SAFE_STOP_DIST = 40
+        self.SAFE_STOP_DIST = 35
         self.HARD_STOP_DIST = 25
         # YOU DECIDE: What left motor power helps straighten your fwd()?
         self.LEFT_SPEED = 140
@@ -265,7 +265,7 @@ class Piggy(pigo.Pigo):
         """averages distance on either side of midpoint and turns"""
         print("/n /n /n  CHOOSING PATH!!!  /n /n /n")
         self.encB(3)
-        self.wide_scan(count=6)
+        self.wide_scan(count=5)
 
         avgRight = 0
         avgLeft = 0
