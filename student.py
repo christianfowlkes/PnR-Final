@@ -296,7 +296,7 @@ class Piggy(pigo.Pigo):
 
     def is_clear_in_front(self):
         """ This checks to see if the front way is clear """
-        for ang in range(self.MIDPOINT - 10, self.MIDPOINT + 10):
+        for ang in range(self.MIDPOINT - 20, self.MIDPOINT + 20):
             if self.scan[ang] and self.scan[ang] < self.SAFE_STOP_DIST:
                 return False
         return True
