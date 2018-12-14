@@ -129,7 +129,7 @@ class Piggy(pigo.Pigo):
 
 
     def safe_to_dance(self):
-        """ circles around and check for any obstacle"""
+        """circles around and check for any obstacle"""
         # check for problems
         for x in range(4):
             if not self.is_clear():  # this makes the robot move backward and shake its head in a no motion
@@ -141,10 +141,9 @@ class Piggy(pigo.Pigo):
         # if we find no problems:
         return True
 
-        ''' This makes a command where the robot will do a series dances moves '''
 
     def shuffle_forward(self):
-        """ """
+        """This command makes the robot do a shuffle forward"""
         for x in range(2):
             self.encR(3)
             self.encF(3)
@@ -152,28 +151,25 @@ class Piggy(pigo.Pigo):
             self.encF(3)
 
 
-        ''' This command makes the robot do a shuffle forward '''
-
     def swang(self):
-        """ """
+        """This command makes the robot swing in a backward motion, making a swanging motion"""
         for x in range(3):
             self.encB(4)
             self.encR(2)
             self.encB(4)
             self.encL(2)
 
-        ''' This command makes the robot swing in a backward motion, making a swanging motion '''
 
     def nae_nae(self):
+        """This command makes the robot do the nae nae """
         for x in range(3):
             self.encR(5)
             self.encB(5)
             self.encL(5)
 
-        ''' This command makes the robot do the nae nae '''
 
     def boo(self):
-    """ """
+        """This command makes the robot back up and then do a surprise spring forward BOO! """
         self.set_speed(200,200)
         self.encB(5)
         self.encF(30)
@@ -182,7 +178,7 @@ class Piggy(pigo.Pigo):
             self.servo(140)
             self.servo(80)
 
-    # From Ricky
+    # This dance is from Ricky
     def x_up(self):
         """supposed to make an X formation"""
         for x in range(4):
@@ -196,7 +192,6 @@ class Piggy(pigo.Pigo):
             self.encR(2)
             self.x_up()
 
-        ''' This command makes the robot go backwards faster and then spring forward fast '''
 
     def obstacle_count(self):
         """scans and estimates the number of obstacles within sight"""
@@ -232,7 +227,7 @@ class Piggy(pigo.Pigo):
         print("-----------! NAVIGATION ACTIVATED !------------\n")
 
         error_count = 0
-
+        # this stops the robot if he gets caught in a loop ten times in a row
         while True:
             if self.is_clear():
                 self.cruise()
@@ -252,7 +247,7 @@ class Piggy(pigo.Pigo):
         self.servo(angle)
 
         self.fwd()
-
+        # this loop checks the robots surroundings while cruising
         while self.dist() > self.SAFE_STOP_DIST:
             if angle == self.MIDPOINT:
                 angle = self.MIDPOINT - 29
@@ -265,9 +260,10 @@ class Piggy(pigo.Pigo):
 
         self.stop()
 
-    def choose_path(self): # the robot should chose the path with the greatest distance
+    # the robot should chose the path with the greatest distance
+    def choose_path(self):
         """averages distance on either side of midpoint and turns"""
-        print("/n /n /n  CHOOSING PATH!!!  /n /n /n")
+        print("-----------! NAVIGATION ACTIVATED !------------\n")
         self.encB(3)
         self.wide_scan(count=5)
 
@@ -289,27 +285,29 @@ class Piggy(pigo.Pigo):
         logging.info('The average dist on the left is ' + str(avgLeft) + 'cm')
 
         if self.is_clear_in_front():
-            print(" /n /n THIS WAS A WASTE. IT WAS CLEAR IN FRONT THIS WHOLE TIME /n ")
+            print(" THIS WAS A WASTE. IT WAS CLEAR IN FRONT THIS WHOLE TIME \n")
             self.cruise()
 
-        elif avgRight > avgLeft:  # if right is bigger turn to the right
+        # if right is bigger turn to the right
+        elif avgRight > avgLeft:
             self.encR(4)
         else:  # if left is bigger turn to the left
             self.encL(4)
 
     def is_clear_in_front(self):
-        """ """
+        """ This checks to see if the front way is clear """
         for ang in range(self.MIDPOINT - 10, self.MIDPOINT + 10):
             if self.scan[ang] and self.scan[ang] < self.SAFE_STOP_DIST:
                 return False
         return True
 
+# detects an error
 def error():
     """records general, less specific error"""
     logging.error("ERROR-404 not found")
     print('ERROR')
 
-
+# shuts down the app
 def quit_now():
     """shuts down app"""
     raise SystemExit
