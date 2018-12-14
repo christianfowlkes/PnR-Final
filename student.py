@@ -144,6 +144,7 @@ class Piggy(pigo.Pigo):
         ''' This makes a command where the robot will do a series dances moves '''
 
     def shuffle_forward(self):
+        """ """
         for x in range(2):
             self.encR(3)
             self.encF(3)
@@ -154,6 +155,7 @@ class Piggy(pigo.Pigo):
         ''' This command makes the robot do a shuffle forward '''
 
     def swang(self):
+        """ """
         for x in range(3):
             self.encB(4)
             self.encR(2)
@@ -171,6 +173,7 @@ class Piggy(pigo.Pigo):
         ''' This command makes the robot do the nae nae '''
 
     def boo(self):
+    """ """
         self.set_speed(200,200)
         self.encB(5)
         self.encF(30)
@@ -258,6 +261,7 @@ class Piggy(pigo.Pigo):
             elif angle == self.MIDPOINT + 29:
                 angle = self.MIDPOINT
             self.servo(angle)
+            time.sleep(.1)
 
         self.stop()
 
@@ -294,6 +298,7 @@ class Piggy(pigo.Pigo):
             self.encL(4)
 
     def is_clear_in_front(self):
+        """ """
         for ang in range(self.MIDPOINT - 10, self.MIDPOINT + 10):
             if self.scan[ang] and self.scan[ang] < self.SAFE_STOP_DIST:
                 return False
