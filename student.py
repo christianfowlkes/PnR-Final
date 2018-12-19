@@ -266,13 +266,16 @@ class Piggy(pigo.Pigo):
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         self.encB(3)
         self.wide_scan(count=5)
-
+        maxLeft = 0
+        maxRight = 0
         avgRight = 0
         avgLeft = 0
 
         for x in range(self.MIDPOINT-60, self.MIDPOINT):
             if self.scan[x]:
                 avgRight += self.scan[x]
+                if self.scan[x] > maxRight:
+                    maxRight = self.scan[x]
         avgRight /= 60
         print('The average dist on the right is '+str(avgRight)+'cm')  # tells how far object is on the right
         logging.info('The average dist on the right is ' + str(avgRight) + 'cm')
@@ -280,6 +283,8 @@ class Piggy(pigo.Pigo):
         for x in range(self.MIDPOINT, self.MIDPOINT+60):
             if self.scan[x]:
                 avgLeft += self.scan[x]
+                if self.scan[x] > maxLeft:
+                    maxLeft = self.scan[x]
         avgLeft /= 60
         print('The average dist on the left is ' + str(avgLeft) + 'cm')  # tells how far object is on the left
         logging.info('The average dist on the left is ' + str(avgLeft) + 'cm')
@@ -287,7 +292,10 @@ class Piggy(pigo.Pigo):
         if self.is_clear_in_front():
             print(" THIS WAS A WASTE. IT WAS CLEAR IN FRONT THIS WHOLE TIME \n")
             self.cruise()
-
+        elif maxRight > maxLeft:
+            self.encR(4)
+        elif maxLeft > maxRight:
+            self.encL(4)
         # if right is bigger turn to the right
         elif avgRight > avgLeft:
             self.encR(4)
