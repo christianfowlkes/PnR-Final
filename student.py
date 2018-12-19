@@ -256,7 +256,7 @@ class Piggy(pigo.Pigo):
             elif angle == self.MIDPOINT + 29:
                 angle = self.MIDPOINT
             self.servo(angle)
-            time.sleep(.1)
+            time.sleep(.01)
 
         self.stop()
 
@@ -296,7 +296,7 @@ class Piggy(pigo.Pigo):
 
     def is_clear_in_front(self):
         """ This checks to see if the front way is clear """
-        for ang in range(self.MIDPOINT - 20, self.MIDPOINT + 20):
+        for ang in range(self.MIDPOINT - 30, self.MIDPOINT + 30):
             if self.scan[ang] and self.scan[ang] < self.SAFE_STOP_DIST:
                 return False
         return True
